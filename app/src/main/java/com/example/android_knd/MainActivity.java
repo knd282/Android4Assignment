@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editTextPassword.requestFocus();
             return;}
 
-        //for register data
+        //for login
         progressBar.setVisibility(View.GONE);
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(task.isSuccessful()){
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if(user.isEmailVerified()){
-                        //redirect to user profile
+                        //redirect to user profile(search book page)
                         startActivity(new Intent(MainActivity.this, search_book.class));
                     }else {
                         user.sendEmailVerification();
