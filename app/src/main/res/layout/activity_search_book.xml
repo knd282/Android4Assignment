@@ -8,26 +8,10 @@
 
     <Button
         android:id="@+id/signOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/cardview_dark_background"
-        android:text="Logout"
-        android:textColor="#ffff"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
-    <Button
-        android:id="@+id/btnBook"
-        android:layout_width="98dp"
+        android:layout_width="110dp"
         android:layout_height="40dp"
         android:backgroundTint="@color/cardview_dark_background"
-        android:text="Search"
+        android:text="Logout"
         android:textColor="#ffff"
         android:textSize="10sp"
         android:textStyle="bold"
@@ -36,25 +20,59 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.577" />
+        app:layout_constraintVertical_bias="0.976" />
+
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="98dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:text="Search"
+        android:textColor="#ffff"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.526" />
 
     <EditText
         android:id="@+id/txtBook"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
+        android:layout_width="255dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="272dp"
         android:ems="10"
-        android:hint="Title or Author Name"
+        android:hint="Enter Author Name or ISBN"
         android:inputType="text"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnBook"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/signOut"
+        app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerDescription" />
+
+    <Button
+        android:id="@+id/btnISBN"
+        android:layout_width="98dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:text="Scan ISBN"
+        android:textColor="#ffff"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.664" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
