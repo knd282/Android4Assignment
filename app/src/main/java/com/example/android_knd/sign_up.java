@@ -96,13 +96,12 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener{
 
                         if(task.isSuccessful()){
                             user_data user = new user_data(name, age, email);
-
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    //direct to login layout
+                                    //
                                     if(task.isSuccessful()){
                                         Toast.makeText(sign_up.this, "Registered successfully!", Toast.LENGTH_LONG).show();
                                     }else {
