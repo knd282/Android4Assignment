@@ -1,6 +1,6 @@
 package com.example.android_knd;
 
-//to store user data
+// user data
 
 public class user_data {
     public String fullName, age, email;

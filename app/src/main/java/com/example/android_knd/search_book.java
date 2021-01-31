@@ -43,7 +43,7 @@ public class search_book extends AppCompatActivity {
             Toast.makeText(this, "Code isn't found", Toast.LENGTH_LONG).show();
         }
     }
-    //--------------------------------------------------ISBN
+//--------------------------------------------------ISBN
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +69,9 @@ public class search_book extends AppCompatActivity {
                         search_book.this
                 );
                 intentIntegrator.setPrompt("Volume Up to Open Flash");
-                intentIntegrator.setOrientationLocked(true);
+                intentIntegrator.setOrientationLocked(false);
                 intentIntegrator.setCaptureActivity(Cam.class);
-                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.EAN_13);
                 intentIntegrator.initiateScan();
             }
         });
