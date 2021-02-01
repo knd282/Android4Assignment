@@ -3,21 +3,21 @@
     package="com.example.android_knd">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.Camera2"/>
-    <uses-feature android:name="android.hardware.Camera2.autofoucs"/>
+    <uses-feature android:name="android.hardware.Camera2" />
+    <uses-feature android:name="android.hardware.Camera2.autofoucs" />
 
     <application
-        android:usesCleartextTraffic="true"
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="BookReviewer"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Android_KND">
-        <activity android:name=".web_view"/>
+        android:theme="@style/Theme.Android_KND"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".wish_list"></activity>
+        <activity android:name=".web_view" />
         <activity android:name=".forgot_password" />
         <activity android:name=".search_book" />
         <activity android:name=".sign_up" />
@@ -28,12 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity android:name=".Cam"
+        <activity
+            android:name=".Cam"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
-            android:windowSoftInputMode="stateAlwaysHidden">
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
     </application>
 
 </manifest>
