@@ -33,21 +33,27 @@ public class web_view extends AppCompatActivity {
             public void onClick(View view) {
                 //start
                 String passURL = getIntent().getStringExtra("key");
-                //add wishlist to firebase with auto generate ID
-                DatabaseReference myRef = FirebaseDatabase.getInstance()
-                        .getReference().child("Users")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Wishlist");
-                myRef.push().setValue(passURL).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){//show it if complete
-                            Toast.makeText(web_view.this, "Added to wishlist", Toast.LENGTH_SHORT).show();
-                        }else{//just error handler
-                            Toast.makeText(web_view.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+
+                if(passURL.matches("[0-9]+") && passURL.length()>= 10){
+                    //add wishlist to firebase with auto generate ID
+                    DatabaseReference myRef = FirebaseDatabase.getInstance()
+                            .getReference().child("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Wishlist");
+                    myRef.push().setValue("http://www.librarything.com/isbn/" + passURL).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){//show it if complete
+                                Toast.makeText(web_view.this, "Added to wishlist", Toast.LENGTH_SHORT).show();
+                            }else{//just error handler
+                                Toast.makeText(web_view.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
-                //End send wishlist to firebase
+                    });
+                    //End send wishlist to firebase
+                }else{
+                    Toast.makeText(web_view.this, "You can only add the book with ISBN", Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
