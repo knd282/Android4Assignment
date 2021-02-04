@@ -9,7 +9,7 @@
     <Button
         android:id="@+id/btnList1"
         android:layout_width="338dp"
-        android:layout_height="44dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Favourite 1"
         android:textColor="#ffff"
@@ -27,7 +27,7 @@
     <Button
         android:id="@+id/btnList2"
         android:layout_width="338dp"
-        android:layout_height="44dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Favourite 2"
         android:textColor="#ffff"
@@ -45,7 +45,7 @@
     <Button
         android:id="@+id/btnList3"
         android:layout_width="338dp"
-        android:layout_height="44dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Favourite 3"
         android:textColor="#ffff"
@@ -63,7 +63,7 @@
     <Button
         android:id="@+id/btnList4"
         android:layout_width="338dp"
-        android:layout_height="44dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Favourite 4"
         android:textColor="#ffff"
@@ -81,7 +81,7 @@
     <Button
         android:id="@+id/btnList5"
         android:layout_width="338dp"
-        android:layout_height="44dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Favourite 5"
         android:textColor="#ffff"
@@ -96,6 +96,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.750" />
 
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="98dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/cardview_dark_background"
+        android:text="Clear all"
+        android:textColor="#ffff"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.901" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

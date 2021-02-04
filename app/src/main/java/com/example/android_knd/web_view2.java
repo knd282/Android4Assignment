@@ -15,7 +15,6 @@ public class web_view2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view2);
 
-
         webView2 = (WebView) findViewById(R.id.webview2);
         //fit screen
         webView2.setInitialScale(1);

@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/signOut"
-        android:layout_width="110dp"
+        android:layout_width="98dp"
         android:layout_height="40dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Logout"
