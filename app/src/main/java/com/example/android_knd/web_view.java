@@ -54,7 +54,7 @@ public class web_view extends AppCompatActivity {
                                 restrict.add(postSnapshot.getValue().toString());
                             }
                             if(restrict.size()>=5){
-                                Toast.makeText(web_view.this, "You can only add 5 books maximun", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(web_view.this, "You can only add 5 books maximum", Toast.LENGTH_SHORT).show();
                             }else{
                                 myRef.push().setValue("http://www.librarything.com/isbn/" + passURL).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -62,7 +62,7 @@ public class web_view extends AppCompatActivity {
                                         if(task.isSuccessful()){//show it if complete
                                             Toast.makeText(web_view.this, "Added to wishlist", Toast.LENGTH_SHORT).show();
                                         }else{//just error handler
-                                            Toast.makeText(web_view.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(web_view.this, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });

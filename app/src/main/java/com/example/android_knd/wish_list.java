@@ -50,7 +50,7 @@ public class wish_list extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                             postSnapshot.getRef().removeValue();
-                            Toast.makeText(wish_list.this, "Clear", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(wish_list.this, "Removed", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override
@@ -90,7 +90,7 @@ public class wish_list extends AppCompatActivity {
                                 launchWish.putExtra("k",a);
                                 startActivity(launchWish);
                             }else{
-                                Toast.makeText(wish_list.this, "Favourite is empty 1", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(wish_list.this, "Favourite 1 is empty", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -105,7 +105,7 @@ public class wish_list extends AppCompatActivity {
                             launchWish.putExtra("k",b);
                             startActivity(launchWish);
                         }else{
-                            Toast.makeText(wish_list.this, "Favourite is empty 2", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(wish_list.this, "Favourite 2 is empty", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -120,7 +120,7 @@ public class wish_list extends AppCompatActivity {
                             launchWish.putExtra("k",c);
                             startActivity(launchWish);
                         }else{
-                            Toast.makeText(wish_list.this, "Favourite is empty 3", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(wish_list.this, "Favourite 3 is empty", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -135,7 +135,7 @@ public class wish_list extends AppCompatActivity {
                             launchWish.putExtra("k",d);
                             startActivity(launchWish);
                         }else{
-                            Toast.makeText(wish_list.this, "Favourite is empty 4", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(wish_list.this, "Favourite 4 is empty", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -149,7 +149,7 @@ public class wish_list extends AppCompatActivity {
                             launchWish.putExtra("k",e);
                             startActivity(launchWish);
                         }else{
-                            Toast.makeText(wish_list.this, "Favourite is empty 5", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(wish_list.this, "Favourite 5 is empty", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

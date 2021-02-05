@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_KND"
         android:usesCleartextTraffic="true">
-        <activity android:name=".web_view2"></activity>
+        <activity android:name=".web_view2"/>
         <activity android:name=".wish_list" />
         <activity android:name=".web_view" />
         <activity android:name=".forgot_password" />

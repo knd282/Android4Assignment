@@ -99,10 +99,10 @@
 
     <Button
         android:id="@+id/btnClear"
-        android:layout_width="98dp"
-        android:layout_height="40dp"
+        android:layout_width="182dp"
+        android:layout_height="38dp"
         android:backgroundTint="@color/cardview_dark_background"
-        android:text="Clear all"
+        android:text="Remove all books"
         android:textColor="#ffff"
         android:textSize="10sp"
         android:textStyle="bold"

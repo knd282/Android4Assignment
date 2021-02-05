@@ -62,22 +62,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String password = editTextPassword.getText().toString().trim();
         //check email is empty or not
         if(email.isEmpty()){
-            editTextEmail.setError("Email is required!");
+            editTextEmail.setError("Email is required");
             editTextEmail.requestFocus();
             return;}
         //check email format
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextEmail.setError("Enter a valid email!");
+            editTextEmail.setError("Valid email is required");
             editTextEmail.requestFocus();
             return;}
         //check password is empty or not
         if(password.isEmpty()){
-            editTextPassword.setError("Password is required!");
+            editTextPassword.setError("Password is required");
             editTextPassword.requestFocus();
             return;}
         //check password length
         if(password.length()<5){
-            editTextPassword.setError("Minimum password length is 5 characters");
+            editTextPassword.setError("Passwords must have at least 5 characters");
             editTextPassword.requestFocus();
             return;}
 
@@ -93,10 +93,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         startActivity(new Intent(MainActivity.this, search_book.class));
                     }else {
                         user.sendEmailVerification();
-                        Toast.makeText(MainActivity.this, "Pls check your email to verify your account", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Please check your email, follow the link and change your password", Toast.LENGTH_LONG).show();
                     }
                 }else{
-                    Toast.makeText(MainActivity.this,"SOMETHING IS WRONG!! Pls check your input data", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"Invalid email or password", Toast.LENGTH_LONG).show();
                 }
             }
         });

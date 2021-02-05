@@ -53,8 +53,7 @@ public class search_book extends AppCompatActivity {
             launchResult.putExtra("key", passURL);
             startActivity(launchResult);
         }else {
-            //if null
-            Toast.makeText(this, "Code isn't found", Toast.LENGTH_LONG).show();
+
         }
     }
 //--------------------------------------------------ISBN
@@ -91,7 +90,7 @@ public class search_book extends AppCompatActivity {
                 IntentIntegrator intentIntegrator = new IntentIntegrator(
                         search_book.this
                 );
-                intentIntegrator.setPrompt("Volume Up to Open Flash");
+                intentIntegrator.setPrompt("Volume up to open flash");
                 intentIntegrator.setOrientationLocked(false);
                 intentIntegrator.setCaptureActivity(Cam.class);
                 intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.EAN_13);
@@ -107,7 +106,7 @@ public class search_book extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(tBook.getText().toString().isEmpty()){
-                    Toast.makeText(search_book.this, "Empty Field", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(search_book.this, "Please enter ISBN or Title", Toast.LENGTH_SHORT).show();
                 }else {
                     String txtBook = tBook.getText().toString();
                     //get data
