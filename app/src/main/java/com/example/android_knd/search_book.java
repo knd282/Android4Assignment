@@ -4,10 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -33,11 +37,12 @@ public class search_book extends AppCompatActivity {
     FloatingActionButton fab_wish;
 //-------------------------------------------------for book search
     EditText tBook;
-    Button btnDisplay;
+    private Button btnDisplay;
 //-------------------------------------------------logout
     private Button logout;
 //--------------------------------------------------logout
 //--------------------------------------------------ISBN
+
     Button btnISBNum;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -78,6 +83,7 @@ public class search_book extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(search_book.this, MainActivity.class));
+                finish();
             }
         });
 //--------------------------------------------------logout
@@ -100,7 +106,7 @@ public class search_book extends AppCompatActivity {
 //--------------------------------------------------for ISBN
 //--------------------------------------------------for book search start
         tBook = findViewById(R.id.txtBook);
-        btnDisplay = findViewById(R.id.btnSearch);
+        btnDisplay = (Button)findViewById(R.id.btnSearch);
 
         btnDisplay.setOnClickListener(new View.OnClickListener() {
             @Override

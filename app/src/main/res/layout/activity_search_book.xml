@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/signOut"
-        android:layout_width="98dp"
+        android:layout_width="100dp"
         android:layout_height="40dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Logout"
@@ -34,7 +34,7 @@
         android:ems="10"
         android:hint="Enter ISBN or Title"
         android:inputType="text"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btnISBN"
         app:layout_constraintEnd_toStartOf="@+id/btnSearch"
         app:layout_constraintHorizontal_bias="1.15"
@@ -45,7 +45,7 @@
 
     <Button
         android:id="@+id/btnSearch"
-        android:layout_width="98dp"
+        android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginBottom="28dp"
@@ -64,7 +64,7 @@
 
     <Button
         android:id="@+id/btnISBN"
-        android:layout_width="98dp"
+        android:layout_width="100dp"
         android:layout_height="40dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="Scan ISBN"

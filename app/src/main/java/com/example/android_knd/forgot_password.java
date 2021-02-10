@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -19,6 +21,7 @@ public class forgot_password extends AppCompatActivity {
     private EditText emailEditText;
     private Button resetPasswordButton;
     private ProgressBar progressBar;
+
     //firebase
     FirebaseAuth auth;
 
@@ -30,6 +33,7 @@ public class forgot_password extends AppCompatActivity {
         resetPasswordButton = (Button) findViewById(R.id.resetPassword);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         auth = FirebaseAuth.getInstance();
+
         //reset pass
         resetPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override

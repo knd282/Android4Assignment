@@ -27,10 +27,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //check user is login or not
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+            //if user is signed in
+            startActivity(new Intent(MainActivity.this, search_book.class));
+            finish();
+        }
+        //end
         reg = (TextView) findViewById(R.id.register);
         reg.setOnClickListener(this);
         sIn = (Button) findViewById(R.id.signIn);
@@ -42,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         forgotPassword = (TextView) findViewById(R.id.forgotPassword);
         forgotPassword.setOnClickListener(this);
     }
-
+    
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -91,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if(user.isEmailVerified()){
                         //redirect to user profile(search book page)
                         startActivity(new Intent(MainActivity.this, search_book.class));
+                        finish();
                     }else {
                         user.sendEmailVerification();
                         Toast.makeText(MainActivity.this, "Please check your email, follow the link and change your password", Toast.LENGTH_LONG).show();
