@@ -10,7 +10,6 @@ public class wishlist_webview extends AppCompatActivity {
 
     private WebView webView2;
 
-
     //back press animation
     @Override
     public void onBackPressed() {
@@ -31,7 +30,6 @@ public class wishlist_webview extends AppCompatActivity {
         webView2.getSettings().setJavaScriptEnabled(true);
 
         webView2.setWebViewClient(new WebViewClient());
-
 
         String launchWish = getIntent().getStringExtra("k");
         webView2.loadUrl(launchWish); //load website

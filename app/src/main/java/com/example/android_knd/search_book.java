@@ -15,22 +15,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-//for logout and searching books
 public class search_book extends AppCompatActivity {
 
-//---wishlist
-
-    FloatingActionButton fab_wish;
-//-------------------------------------------------for book search
-    EditText tBook;
-    private Button btnDisplay;
-//-------------------------------------------------logout
-    private Button logout;
-//--------------------------------------------------logout
-//--------------------------------------------------ISBN
-
-    Button btnISBNum;
-
+    private FloatingActionButton fab_wish;
+    private EditText tBook;
+    private Button btnDisplay, logout, btnISBNum;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -52,22 +41,20 @@ public class search_book extends AppCompatActivity {
         }
     }
 //--------------------------------------------------ISBN
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_book);
         //wishlist
-        fab_wish = findViewById(R.id.fab_wishL);
+        fab_wish = (FloatingActionButton)findViewById(R.id.fab_wishL);
         fab_wish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),wish_list.class));
                 overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                //startActivity(new Intent(search_book.this, wish_list.class));
             }
         });
-        //wishlist
+        //wish list
 //--------------------------------------------------logout
         logout = (Button) findViewById(R.id.signOut);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -76,13 +63,12 @@ public class search_book extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 overridePendingTransition(R.anim.slide_down_in,R.anim.slide_down_out);
-                //startActivity(new Intent(search_book.this, MainActivity.class));
                 finish();
             }
         });
 //--------------------------------------------------logout
 //--------------------------------------------------for ISBN
-        btnISBNum = findViewById(R.id.btnISBN);
+        btnISBNum = (Button)findViewById(R.id.btnISBN);
         btnISBNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +85,7 @@ public class search_book extends AppCompatActivity {
         });
 //--------------------------------------------------for ISBN
 //--------------------------------------------------for book search start
-        tBook = findViewById(R.id.txtBook);
+        tBook = (EditText) findViewById(R.id.txtBook);
         btnDisplay = (Button)findViewById(R.id.btnSearch);
 
         btnDisplay.setOnClickListener(new View.OnClickListener() {

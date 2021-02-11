@@ -24,7 +24,6 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener{
     private TextView banner, registerUser;
     private EditText editTextFullName, editTextEmail, editTextPassword;
     private ProgressBar progressBar;
-    //firebase
     private FirebaseAuth mAuth;
 
     //back press animation
@@ -54,7 +53,6 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener{
             case  R.id.banner:
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                //startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.createAccount:
                 registerUser();

@@ -23,9 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class web_view extends AppCompatActivity {
-    //for fav
-    FloatingActionButton fab;
 
+    private FloatingActionButton fab;
     private WebView webView;
 
     //back press animation
@@ -40,7 +39,7 @@ public class web_view extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
 
-        fab = findViewById(R.id.btn_fab);
+        fab = (FloatingActionButton)findViewById(R.id.btn_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,14 +80,10 @@ public class web_view extends AppCompatActivity {
 
                         }
                     });
-                    //
-
                     //End send wishlist to firebase
                 }else{
                     Toast.makeText(web_view.this, "You can only add the book with ISBN", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 

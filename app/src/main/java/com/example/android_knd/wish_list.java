@@ -21,7 +21,7 @@ import java.util.List;
 
 public class wish_list extends AppCompatActivity {
 
-    Button clear, L1, L2, L3, L4, L5;
+    private Button clear, L1, L2, L3, L4, L5;
 
     //back press animation
     @Override
@@ -30,14 +30,14 @@ public class wish_list extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_down_in, R.anim.slide_down_out);
     }
 
-    //private String wishlist;
+    //private String wish list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wish_list);
 
         //start here to clear fav books
-        clear = findViewById(R.id.btnClear);
+        clear = (Button)findViewById(R.id.btnClear);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,14 +59,12 @@ public class wish_list extends AppCompatActivity {
                 });
             }
         });
-        
-        //
-        L1 = findViewById(R.id.btnList1);
-        L2 = findViewById(R.id.btnList2);
-        L3 = findViewById(R.id.btnList3);
-        L4 = findViewById(R.id.btnList4);
-        L5 = findViewById(R.id.btnList5);
 
+        L1 = (Button)findViewById(R.id.btnList1);
+        L2 = (Button)findViewById(R.id.btnList2);
+        L3 = (Button)findViewById(R.id.btnList3);
+        L4 = (Button)findViewById(R.id.btnList4);
+        L5 = (Button)findViewById(R.id.btnList5);
 
         //start here to retrieve fav books
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("Users")
@@ -80,7 +78,6 @@ public class wish_list extends AppCompatActivity {
                     wishlist_item.add(postSnapshot.getValue().toString());
                 }
                 //list 1
-                //if(wishlist_item.size()>=1){
                     L1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -96,7 +93,6 @@ public class wish_list extends AppCompatActivity {
                             }
                         }
                     });
-                //}
                 //list 2
                 L2.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -114,7 +110,6 @@ public class wish_list extends AppCompatActivity {
                     }
                 });
                 //list 3
-
                 L3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -130,7 +125,6 @@ public class wish_list extends AppCompatActivity {
                         }
                     }
                 });
-
                 //list 4
                 L4.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -168,9 +162,5 @@ public class wish_list extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
-
-
-
     }
 }

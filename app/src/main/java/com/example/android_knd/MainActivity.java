@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView reg, forgotPassword;
     private EditText editTextEmail, editTextPassword;
     private Button sIn;
-    ///firebase
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
 
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //if user is signed in
             startActivity(new Intent(getApplicationContext(),search_book.class));
             overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-            //startActivity(new Intent(MainActivity.this, search_book.class));
             finish();
         }
         //end
@@ -66,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.register:
                 startActivity(new Intent(getApplicationContext(),sign_up.class));
+                //animation
                 overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                //startActivity(new Intent(this, sign_up.class));
                 break;
             case R.id.signIn:
                 userLogin();
@@ -75,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.forgotPassword:
                 startActivity(new Intent(getApplicationContext(),forgot_password.class));
                 overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                //startActivity(new Intent(this, forgot_password.class));
                 break;}
     }
 
@@ -114,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //redirect to user profile(search book page)
                         startActivity(new Intent(getApplicationContext(),search_book.class));
                         overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                        //startActivity(new Intent(MainActivity.this, search_book.class));
                         finish();
                     }else {
                         user.sendEmailVerification();

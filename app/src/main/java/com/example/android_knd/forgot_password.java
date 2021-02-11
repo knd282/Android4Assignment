@@ -21,9 +21,7 @@ public class forgot_password extends AppCompatActivity {
     private EditText emailEditText;
     private Button resetPasswordButton;
     private ProgressBar progressBar;
-
-    //firebase
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
 
     //back press animation
     @Override
