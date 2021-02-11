@@ -6,14 +6,22 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class web_view2 extends AppCompatActivity {
+public class wishlist_webview extends AppCompatActivity {
 
     private WebView webView2;
+
+
+    //back press animation
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_down_in, R.anim.slide_down_out);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web_view2);
+        setContentView(R.layout.activity_wishlist_webview);
 
         webView2 = (WebView) findViewById(R.id.webview2);
         //fit screen

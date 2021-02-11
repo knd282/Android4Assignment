@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
 
+    //back press animation
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_down_in, R.anim.slide_down_out);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null){
             //if user is signed in
-            startActivity(new Intent(MainActivity.this, search_book.class));
+            startActivity(new Intent(getApplicationContext(),search_book.class));
+            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+            //startActivity(new Intent(MainActivity.this, search_book.class));
             finish();
         }
         //end
@@ -57,13 +65,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.register:
-                startActivity(new Intent(this, sign_up.class));
+                startActivity(new Intent(getApplicationContext(),sign_up.class));
+                overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                //startActivity(new Intent(this, sign_up.class));
                 break;
             case R.id.signIn:
                 userLogin();
                 break;
             case R.id.forgotPassword:
-                startActivity(new Intent(this, forgot_password.class));
+                startActivity(new Intent(getApplicationContext(),forgot_password.class));
+                overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                //startActivity(new Intent(this, forgot_password.class));
                 break;}
     }
 
@@ -100,7 +112,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if(user.isEmailVerified()){
                         //redirect to user profile(search book page)
-                        startActivity(new Intent(MainActivity.this, search_book.class));
+                        startActivity(new Intent(getApplicationContext(),search_book.class));
+                        overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                        //startActivity(new Intent(MainActivity.this, search_book.class));
                         finish();
                     }else {
                         user.sendEmailVerification();

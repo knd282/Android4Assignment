@@ -27,6 +27,13 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener{
     //firebase
     private FirebaseAuth mAuth;
 
+    //back press animation
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_down_in, R.anim.slide_down_out);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +52,9 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case  R.id.banner:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                //startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.createAccount:
                 registerUser();

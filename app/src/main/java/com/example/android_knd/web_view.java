@@ -28,6 +28,13 @@ public class web_view extends AppCompatActivity {
 
     private WebView webView;
 
+    //back press animation
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_down_in, R.anim.slide_down_out);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

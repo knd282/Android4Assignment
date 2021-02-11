@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,13 +21,15 @@ import java.util.List;
 
 public class wish_list extends AppCompatActivity {
 
-    Button clear;
+    Button clear, L1, L2, L3, L4, L5;
 
-    Button L1;
-    Button L2;
-    Button L3;
-    Button L4;
-    Button L5;
+    //back press animation
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_down_in, R.anim.slide_down_out);
+    }
+
     //private String wishlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +85,12 @@ public class wish_list extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             if(wishlist_item.size()>=1){
-                                Intent launchWish = new Intent(wish_list.this,web_view2.class);
+                                Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
                                 String a = wishlist_item.get(0);
                                 launchWish.putExtra("k",a);
                                 startActivity(launchWish);
+                                //animation
+                                overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
                             }else{
                                 Toast.makeText(wish_list.this, "Favourite 1 is empty", Toast.LENGTH_SHORT).show();
                             }
@@ -100,10 +102,12 @@ public class wish_list extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if(wishlist_item.size()>=2){
-                            Intent launchWish = new Intent(wish_list.this,web_view2.class);
+                            Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
                             String b = wishlist_item.get(1);
                             launchWish.putExtra("k",b);
                             startActivity(launchWish);
+                            //animation
+                            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
                         }else{
                             Toast.makeText(wish_list.this, "Favourite 2 is empty", Toast.LENGTH_SHORT).show();
                         }
@@ -115,10 +119,12 @@ public class wish_list extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if(wishlist_item.size()>=3){
-                            Intent launchWish = new Intent(wish_list.this,web_view2.class);
+                            Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
                             String c = wishlist_item.get(2);
                             launchWish.putExtra("k",c);
                             startActivity(launchWish);
+                            //animation
+                            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
                         }else{
                             Toast.makeText(wish_list.this, "Favourite 3 is empty", Toast.LENGTH_SHORT).show();
                         }
@@ -130,10 +136,12 @@ public class wish_list extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if(wishlist_item.size()>=4){
-                            Intent launchWish = new Intent(wish_list.this,web_view2.class);
+                            Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
                             String d = wishlist_item.get(3);
                             launchWish.putExtra("k",d);
                             startActivity(launchWish);
+                            //animation
+                            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
                         }else{
                             Toast.makeText(wish_list.this, "Favourite 4 is empty", Toast.LENGTH_SHORT).show();
                         }
@@ -144,10 +152,12 @@ public class wish_list extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if(wishlist_item.size()>=5){
-                            Intent launchWish = new Intent(wish_list.this,web_view2.class);
+                            Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
                             String e = wishlist_item.get(4);
                             launchWish.putExtra("k",e);
                             startActivity(launchWish);
+                            //animation
+                            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
                         }else{
                             Toast.makeText(wish_list.this, "Favourite 5 is empty", Toast.LENGTH_SHORT).show();
                         }
@@ -158,34 +168,6 @@ public class wish_list extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
