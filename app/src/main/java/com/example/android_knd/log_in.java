@@ -19,24 +19,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class log_in extends AppCompatActivity implements View.OnClickListener {
     private TextView reg, forgotPassword;
     private EditText editTextEmail, editTextPassword;
     private Button sIn;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
 
-    //back press animation
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.slide_down_in, R.anim.slide_down_out);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login_in);
 
         //check user is login or not
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -114,10 +107,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         finish();
                     }else {
                         user.sendEmailVerification();
-                        Toast.makeText(MainActivity.this, "Please check your email, follow the link and change your password", Toast.LENGTH_LONG).show();
+                        Toast.makeText(log_in.this, "Please check your email, follow the link and change your password", Toast.LENGTH_LONG).show();
                     }
                 }else{
-                    Toast.makeText(MainActivity.this,"Invalid email or password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(log_in.this,"Invalid email or password", Toast.LENGTH_LONG).show();
                 }
             }
         });

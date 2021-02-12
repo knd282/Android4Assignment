@@ -23,5 +23,4 @@
         app:backgroundTint="@color/cardview_dark_background"
         app:tint="#FFFFFF" />
 
-
 </RelativeLayout>

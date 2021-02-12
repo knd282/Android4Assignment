@@ -61,7 +61,7 @@ public class search_book extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), log_in.class));
                 overridePendingTransition(R.anim.slide_down_in,R.anim.slide_down_out);
                 finish();
             }

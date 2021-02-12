@@ -3,7 +3,12 @@ package com.example.android_knd;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +28,10 @@ public class wish_list extends AppCompatActivity {
 
     private Button clear, L1, L2, L3, L4, L5;
 
+    //shake sensors
+    private SensorManager sm;
+    private float aceVal, aceLast, shake;
+
     //back press animation
     @Override
     public void onBackPressed() {
@@ -36,27 +45,20 @@ public class wish_list extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wish_list);
 
+        //sensor
+        sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sm.registerListener(sensorListener, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+        aceVal = SensorManager.GRAVITY_EARTH;
+        aceLast = SensorManager.GRAVITY_EARTH;
+        shake = 0.00f;
+        //sensor
+
         //start here to clear fav books
         clear = (Button)findViewById(R.id.btnClear);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference myRefC = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(FirebaseAuth.getInstance()
-                        .getCurrentUser().getUid()).child("Wishlist");
-
-                myRefC.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                            postSnapshot.getRef().removeValue();
-                            Toast.makeText(wish_list.this, "Removed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                    }
-                });
+                removeAllLists();
             }
         });
 
@@ -163,4 +165,51 @@ public class wish_list extends AppCompatActivity {
             }
         });
     }
+
+    private void removeAllLists() {
+        DatabaseReference myRefC = FirebaseDatabase.getInstance().getReference().child("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Wishlist");
+        myRefC.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    postSnapshot.getRef().removeValue();
+                    Toast.makeText(wish_list.this, "Removed", Toast.LENGTH_SHORT).show();
+                    finish();
+                    overridePendingTransition( 0, 0);
+                    startActivity(getIntent());
+                    overridePendingTransition( 0, 0);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+
+    //sensor
+    private final SensorEventListener sensorListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent sensorEvent) {
+
+            float x = sensorEvent.values[0];
+            float y = sensorEvent.values[1];
+            float z = sensorEvent.values[2];
+
+            aceLast = aceVal;
+            aceVal = (float) Math.sqrt((double)(x*x + y*y + z*z));
+            float delta = aceVal - aceLast;
+            shake = shake * 0.9f + delta;
+
+            if(shake>8){
+                removeAllLists();
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+
+        }
+    };
+
 }

@@ -8,6 +8,8 @@
     <uses-feature android:name="android.hardware.Camera2" />
     <uses-feature android:name="android.hardware.Camera2.autofoucs" />
 
+    <uses-feature android:name="android.hardware.sensor.accelerometer"
+                  android:required="true" />
     <supports-screens
         android:resizeable="true"
         android:smallScreens="true"
@@ -30,13 +32,12 @@
         <activity android:name=".forgot_password" />
         <activity android:name=".search_book" />
         <activity android:name=".sign_up" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".log_in">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".cam"

@@ -51,7 +51,7 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case  R.id.banner:
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), log_in.class));
                 overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
                 break;
             case R.id.createAccount:
