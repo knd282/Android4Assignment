@@ -3,13 +3,15 @@
     package="com.example.android_knd">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <uses-feature android:name="android.hardware.Camera2" />
-    <uses-feature android:name="android.hardware.Camera2.autofoucs" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
 
-    <uses-feature android:name="android.hardware.sensor.accelerometer"
-                  android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.proximity" />
     <supports-screens
         android:resizeable="true"
         android:smallScreens="true"

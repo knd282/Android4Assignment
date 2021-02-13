@@ -10,6 +10,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ public class wish_list extends AppCompatActivity {
     private SensorManager sm;
     private float aceVal, aceLast, shake;
 
+
     //back press animation
     @Override
     public void onBackPressed() {
@@ -53,7 +55,7 @@ public class wish_list extends AppCompatActivity {
         shake = 0.00f;
         //sensor
 
-        //start here to clear fav books
+        // to clear fav books
         clear = (Button)findViewById(R.id.btnClear);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,99 +73,99 @@ public class wish_list extends AppCompatActivity {
         //start here to retrieve fav books
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Wishlist");
-
+        List<String> wishlist_item = new ArrayList<String>();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<String> wishlist_item = new ArrayList<String>();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     wishlist_item.add(postSnapshot.getValue().toString());
                 }
-                //list 1
-                    L1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if(wishlist_item.size()>=1){
-                                Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
-                                String a = wishlist_item.get(0);
-                                launchWish.putExtra("k",a);
-                                startActivity(launchWish);
-                                //animation
-                                overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                            }else{
-                                Toast.makeText(wish_list.this, "Favourite 1 is empty", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                //list 2
-                L2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(wishlist_item.size()>=2){
-                            Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
-                            String b = wishlist_item.get(1);
-                            launchWish.putExtra("k",b);
-                            startActivity(launchWish);
-                            //animation
-                            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                        }else{
-                            Toast.makeText(wish_list.this, "Favourite 2 is empty", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-                //list 3
-                L3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(wishlist_item.size()>=3){
-                            Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
-                            String c = wishlist_item.get(2);
-                            launchWish.putExtra("k",c);
-                            startActivity(launchWish);
-                            //animation
-                            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                        }else{
-                            Toast.makeText(wish_list.this, "Favourite 3 is empty", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-                //list 4
-                L4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(wishlist_item.size()>=4){
-                            Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
-                            String d = wishlist_item.get(3);
-                            launchWish.putExtra("k",d);
-                            startActivity(launchWish);
-                            //animation
-                            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                        }else{
-                            Toast.makeText(wish_list.this, "Favourite 4 is empty", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-                //list 5
-                L5.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(wishlist_item.size()>=5){
-                            Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
-                            String e = wishlist_item.get(4);
-                            launchWish.putExtra("k",e);
-                            startActivity(launchWish);
-                            //animation
-                            overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
-                        }else{
-                            Toast.makeText(wish_list.this, "Favourite 5 is empty", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+        //list 1
+        L1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(wishlist_item.size()>=1){
+                    Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
+                    String a = wishlist_item.get(0);
+                    launchWish.putExtra("k",a);
+                    startActivity(launchWish);
+                    //animation
+                    overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                }else{
+                    Toast.makeText(wish_list.this, "Favourite 1 is empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //list 2
+        L2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(wishlist_item.size()>=2){
+                    Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
+                    String b = wishlist_item.get(1);
+                    launchWish.putExtra("k",b);
+                    startActivity(launchWish);
+                    //animation
+                    overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                }else{
+                    Toast.makeText(wish_list.this, "Favourite 2 is empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //list 3
+        L3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(wishlist_item.size()>=3){
+                    Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
+                    String c = wishlist_item.get(2);
+                    launchWish.putExtra("k",c);
+                    startActivity(launchWish);
+                    //animation
+                    overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                }else{
+                    Toast.makeText(wish_list.this, "Favourite 3 is empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //list 4
+        L4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(wishlist_item.size()>=4){
+                    Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
+                    String d = wishlist_item.get(3);
+                    launchWish.putExtra("k",d);
+                    startActivity(launchWish);
+                    //animation
+                    overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                }else{
+                    Toast.makeText(wish_list.this, "Favourite 4 is empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //list 5
+        L5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(wishlist_item.size()>=5){
+                    Intent launchWish = new Intent(wish_list.this, wishlist_webview.class);
+                    String e = wishlist_item.get(4);
+                    launchWish.putExtra("k",e);
+                    startActivity(launchWish);
+                    //animation
+                    overridePendingTransition(R.anim.slide_up_in,R.anim.slide_up_out);
+                }else{
+                    Toast.makeText(wish_list.this, "Favourite 5 is empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     private void removeAllLists() {
@@ -172,6 +174,10 @@ public class wish_list extends AppCompatActivity {
         myRefC.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(!snapshot.hasChildren()){ //no children show toast
+                    Toast.makeText(wish_list.this, "There is nothing to remove", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     postSnapshot.getRef().removeValue();
                     Toast.makeText(wish_list.this, "Removed", Toast.LENGTH_SHORT).show();
@@ -201,14 +207,13 @@ public class wish_list extends AppCompatActivity {
             float delta = aceVal - aceLast;
             shake = shake * 0.9f + delta;
 
-            if(shake>8){
+            if(shake>14){
                 removeAllLists();
             }
         }
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int i) {
-
         }
     };
 
